@@ -85,6 +85,6 @@ function chooseMap() {
     document.querySelector("#map-select").style.pointerEvents = "none";
     document.querySelector("#player-select").style.pointerEvents = "auto";
     document.querySelector("#player-select").style.opacity = 1;
-  }, 1000);
+  }, 500);
   showLoader("#player-select");
 }

@@ -251,6 +251,7 @@
 }
 
 #player-select-preview-container {
+  margin-right: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -258,12 +259,27 @@
 }
 
 #player-select-preview-container::before {
+  content: "";
   background: black;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 20px;
+  height: 15px;
+  z-index: -1;
+}
+
+#player-select-preview-container #container {
+  background: black;
+  clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px);
+  padding-top: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#player-select-preview-container #container #content {
+  background: red;
+  clip-path: polygon(35px 0, 100% 0, 100% 100%, 0 100%, 0 35px);
 }
 
 #player-select-players-container {
