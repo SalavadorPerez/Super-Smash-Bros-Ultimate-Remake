@@ -6,15 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoshKeesee/Super-Smash-Bros-Ultimate-Remake.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JoshKeesee/Super-Smash-Bros-Ultimate-Remake/issues"
-  },
-  "homepage": "https://github.com/JoshKeesee/Super-Smash-Bros-Ultimate-Remake#readme"
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1",
+    "three": "^0.150.1"
+  }
 }
