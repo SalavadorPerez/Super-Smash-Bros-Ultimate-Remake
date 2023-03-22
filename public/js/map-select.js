@@ -76,12 +76,15 @@ function chooseMap() {
   });
 
   if (players[myId].status === "offline") {
+    players[myId].num = 1;
+    players[myId].color = chooseColor(players[myId].num);
     document.querySelector("#player-select-preview-container").innerHTML = "";
     playerSelect.addBackButton(playGameOffline);
     playerSelect.addPlayerSpot(players[myId]);
     playerSelect.addPlayerSpot(players[myId]);
+  } else if (players[myId].status === "online") {
+    playerSelect.addBackButton(playGameOnline);
   }
-  else if (players[myId].status === "online") playerSelect.addBackButton(playGameOnline);
   playerSelect.addPlayers(portraits);
   document.querySelector("#map-select").style.pointerEvents = "none";
   players[myId].currentMap = mapSelect.maps[this.classList[0].replace(/\D/g, "")].map.replaceAll(" ", "");

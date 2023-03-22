@@ -60,8 +60,12 @@ class PlayerSelect {
     spot.id = "spot";
     container.appendChild(spot);
     const shadow = document.createElement("div");
-    shadow.id = "shadow";
     spot.appendChild(shadow);
+    shadow.id = "shadow";
+    shadow.style.color = player.color;
+    const color = window.getComputedStyle(shadow).color;
+    shadow.style.background = color.replace("rgb", "rgba").replace(")", ", 0.7)");
+    spot.style.background = "conic-gradient(from 0.75turn at 70% bottom, " + changeBrightness(color, 50) + " 12deg, " + changeBrightness(color, 25) + " 12deg 20deg, " + changeBrightness(color, 1) + " 20deg 40deg, " + changeBrightness(color, 70) + " 40deg 360deg)";
   }
   removePlayerSpot(num) {
     if (num < 3) return;
@@ -82,6 +86,20 @@ class PlayerSelect {
       container.appendChild(innerContainer);
     }
   }
+}
+
+function changeBrightness(color, percent) {
+  var ctx = document.createElement("canvas").getContext("2d");
+
+  ctx.fillStyle = color;
+  ctx.fillRect(0, 0, 1, 1);
+
+  var color = ctx.getImageData(0, 0, 1, 1);
+  var r = color.data[0] + Math.floor(percent / 100 * 255);
+  var g = color.data[1] + Math.floor(percent / 100 * 255);
+  var b = color.data[2] + Math.floor(percent / 100 * 255);
+
+  return "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
 function choosePlayer() {

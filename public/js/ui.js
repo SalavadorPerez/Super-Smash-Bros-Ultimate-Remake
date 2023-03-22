@@ -319,3 +319,23 @@ function playGameOnline() {
   players[myId].currentMap = "";
   players[myId].status = "online";
 }
+
+function chooseColor(l) {
+  if (l == 1) {
+    return "red";
+  } else if (l == 2) {
+    return "blue";
+  } else if (l == 3) {
+    return "yellow";
+  } else if (l == 4) {
+    return "green";
+  } else if (l == 5) {
+    return "orange";
+  } else if (l == 6) {
+    return "cyan";
+  } else if (l == 7) {
+    return "pink";
+  } else if (l == 8) {
+    return "violet";
+  }
+};

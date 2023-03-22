@@ -282,7 +282,7 @@
 }
 
 #player-select-preview-container #container #spot {
-  background: conic-gradient(from 0.75turn at 70% bottom, #d4818c 12deg, #cf5878 12deg 20deg, #b12062 20deg 40deg, #b6b4d1 40deg 360deg);
+/*   background: conic-gradient(from 0.75turn at 70% bottom, #d4818c 12deg, #cf5878 12deg 20deg, #b12062 20deg 40deg, #b6b4d1 40deg 360deg); */
   clip-path: polygon(55px 0, 100% 0, 100% 100%, 0 100%, 0 55px);
   height: 100%;
   width: 100%;
@@ -290,8 +290,8 @@
 }
 
 #player-select-preview-container #container #spot #shadow {
-  background: rgba(250, 0, 0, 0.7);
-  outline: rgba();
+/*   background: rgba(250, 0, 0, 0.75); */
+  outline: #df626a 2px solid;
   transform: rotate(15deg);
   z-index: 1;
   position: absolute;
@@ -320,7 +320,7 @@
   background-size: 400% 400%;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
   justify-content: center;
-  animation: moveBackground 40s linear infinite;
+  animation: moveBackground 40s ease infinite;
 }
 
 #player-select-inner-container #player {
