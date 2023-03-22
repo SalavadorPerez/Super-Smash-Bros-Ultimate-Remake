@@ -75,7 +75,12 @@ function chooseMap() {
     };
   });
 
-  if (players[myId].status === "offline") playerSelect.addBackButton(playGameOffline);
+  if (players[myId].status === "offline") {
+    document.querySelector("#player-select-preview-container").innerHTML = "";
+    playerSelect.addBackButton(playGameOffline);
+    playerSelect.addPlayerSpot(players[myId]);
+    playerSelect.addPlayerSpot(players[myId]);
+  }
   else if (players[myId].status === "online") playerSelect.addBackButton(playGameOnline);
   playerSelect.addPlayers(portraits);
   document.querySelector("#map-select").style.pointerEvents = "none";

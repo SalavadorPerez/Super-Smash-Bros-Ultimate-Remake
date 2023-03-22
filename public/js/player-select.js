@@ -50,6 +50,23 @@ class PlayerSelect {
       this.addSpacer();
     }
   }
+  addPlayerSpot(player) {
+    if (player.num > 8) return;
+    const container = document.createElement("div");
+    container.id = "container";
+    container.classList = "spot-" + player.num;
+    document.querySelector("#player-select-preview-container").appendChild(container);
+    const spot = document.createElement("div");
+    spot.id = "spot";
+    container.appendChild(spot);
+    const shadow = document.createElement("div");
+    shadow.id = "shadow";
+    spot.appendChild(shadow);
+  }
+  removePlayerSpot(num) {
+    if (num < 3) return;
+    document.querySelector(".spot-" + player.num).remove();
+  }
   addSpacer() {
     const spacer = document.createElement("div");
     spacer.id = "player-select-spacer";

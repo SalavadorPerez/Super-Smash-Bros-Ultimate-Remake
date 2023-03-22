@@ -252,10 +252,12 @@
 
 #player-select-preview-container {
   margin-right: 5px;
+  padding-left: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  gap: 5px;
 }
 
 #player-select-preview-container::before {
@@ -271,15 +273,33 @@
 
 #player-select-preview-container #container {
   background: black;
-  clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px);
-  padding-top: 10px;
+  clip-path: polygon(45px 0, 100% 0, 100% 100%, 0 100%, 0 45px);
+  padding-top: 7px;
   padding-left: 2px;
   padding-right: 2px;
+  height: 100%;
+  width: 100%;
 }
 
-#player-select-preview-container #container #content {
-  background: red;
-  clip-path: polygon(35px 0, 100% 0, 100% 100%, 0 100%, 0 35px);
+#player-select-preview-container #container #spot {
+  background: conic-gradient(from 0.75turn at 70% bottom, #d4818c 12deg, #cf5878 12deg 20deg, #b12062 20deg 40deg, #b6b4d1 40deg 360deg);
+  clip-path: polygon(55px 0, 100% 0, 100% 100%, 0 100%, 0 55px);
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#player-select-preview-container #container #spot #shadow {
+  background: rgba(250, 0, 0, 0.7);
+  outline: rgba();
+  transform: rotate(15deg);
+  z-index: 1;
+  position: absolute;
+  top: -100px;
+  bottom: -100px;
+  right: -100px;
+  left: 50%;
+  box-shadow: -10px 0 0 rgba(100, 100, 100, 0.4);
 }
 
 #player-select-players-container {
@@ -296,11 +316,11 @@
   width: 100%;
   height: 100%;
   display: grid;
-  background: linear-gradient(175deg, #b48d2e, #b48d2e, #bfe5dc, #4cacf2, #7891cb, #636cd0, #4582d3, #4582d3, #4cacf2, #4cacf2, #b8d3ea, #b48d2e, #b48d2e);
+  background: linear-gradient(175deg, #b48d2e, #b48d2e, #bfe5dc, #4cacf2, #7891cb, #636cd0, #4582d3, #4582d3, #4cacf2, #4cacf2, #b8d3ea, #b48d2e, #b48d2e, #bfe5dc, #4cacf2, #7891cb, #636cd0, #4582d3, #4582d3, #4cacf2, #4cacf2, #b8d3ea, #b48d2e, #b48d2e);
   background-size: 400% 400%;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;
   justify-content: center;
-  animation: moveBackground 20s ease infinite;
+  animation: moveBackground 40s linear infinite;
 }
 
 #player-select-inner-container #player {
@@ -323,10 +343,17 @@
 }
 
 #player-select-inner-container #player img {
-  width: 100%;
+  margin-top: 20px;
+  width: 150%;
   opacity: 0;
   transition: opacity 1s;
   filter: drop-shadow(5px 5px 0 rgba(150, 150, 150, 0.8));
+}
+
+#player-select-inner-container #player::last-child img {
+  max-width: 100%;
+  height: 100%;
+  margin-top: 0;
 }
 
 #player-select-inner-container #player #player-text {

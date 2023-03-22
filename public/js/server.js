@@ -16,6 +16,7 @@ var players = {
     speed: 0.02,
     character: "",
     glbScale: 0.08,
+    num: 1,
     color: "blue",
     frame: 0,
     dir: 0,

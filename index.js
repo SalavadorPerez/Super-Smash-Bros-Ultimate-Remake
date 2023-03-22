@@ -56,6 +56,7 @@ io.on("connection", (socket) => {
     speed: 0.02,
     character: "",
     glbScale: 0.08,
+    num: Object.keys(players).length,
     color: chooseColor(Object.keys(players).length),
     frame: 0,
     dir: 0,
