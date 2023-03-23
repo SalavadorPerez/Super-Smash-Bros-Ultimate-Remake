@@ -39,7 +39,7 @@ class PlayerSelect {
       const img = document.createElement("img");
       loadImage(player.src, img, null, true);
       const text = document.createElement("div");
-      text.innerText = player.character.toUpperCase();
+      text.innerText = player.character.toUpperCase().replace("II", "ii");
       text.id = "player-text";
       container.appendChild(img);
       container.appendChild(text);
@@ -59,13 +59,16 @@ class PlayerSelect {
     const spot = document.createElement("div");
     spot.id = "spot";
     container.appendChild(spot);
+    const image = document.createElement("img");
+    image.id = "player-img";
+    spot.appendChild(image);
     const shadow = document.createElement("div");
     spot.appendChild(shadow);
     shadow.id = "shadow";
     shadow.style.color = player.color;
     const color = window.getComputedStyle(shadow).color;
-    shadow.style.background = color.replace("rgb", "rgba").replace(")", ", 0.7)");
-    spot.style.background = "conic-gradient(from 0.75turn at 70% bottom, " + changeBrightness(color, 50) + " 12deg, " + changeBrightness(color, 25) + " 12deg 20deg, " + changeBrightness(color, 1) + " 20deg 40deg, " + changeBrightness(color, 70) + " 40deg 360deg)";
+    if (player.color == "gray") spot.style.filter = "grayscale(1)";
+    else spot.style.filter = "hue-rotate(" + calculateHue(color) + "deg)";
   }
   removePlayerSpot(num) {
     if (num < 3) return;
@@ -88,23 +91,35 @@ class PlayerSelect {
   }
 }
 
-function changeBrightness(color, percent) {
-  var ctx = document.createElement("canvas").getContext("2d");
+function calculateHue(rgb) {
+  const [r, g, b] = rgb.replace(/[^\d,]/g, "").split(",");
+  return rgbToHsl(r, g, b)[0] * 360;
+}
 
-  ctx.fillStyle = color;
-  ctx.fillRect(0, 0, 1, 1);
+function rgbToHsl(r, g, b) {
+  r /= 255, g /= 255, b /= 255;
+  
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
 
-  var color = ctx.getImageData(0, 0, 1, 1);
-  var r = color.data[0] + Math.floor(percent / 100 * 255);
-  var g = color.data[1] + Math.floor(percent / 100 * 255);
-  var b = color.data[2] + Math.floor(percent / 100 * 255);
+  if (max == min) {
+    h = s = 0;
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
+  }
 
-  return "rgb(" + r + ", " + g + ", " + b + ")";
+  return [h, s, l];
 }
 
 function choosePlayer() {
   players[myId].character = playerSelect.players[this.classList[0].replace(/\D/g, "")].character.replaceAll(" ", "").replaceAll(".", "").replaceAll("&", "And");
-  alert(players[myId].character);
   // gameStarted = true;
 }
 

@@ -65,7 +65,8 @@ function changePreviewMap() {
 function chooseMap() {
   players[myId].character = "";
   const portraits = [];
-  const portraitNames = ["Mario", "Luigi", "Peach", "Bowser", "Yoshi", "Rosalina & Luma", "Donkey Kong", "Diddy Kong", "Link", "Zelda", "Sheik", "Toon Link", "Samus", "Zero Suit Samus", "Pit", "Palutena", "Marth", "Ike", "Robin", "Kirby", "King Dedede", "Meta Knight", "Little Mac", "Fox", "Pokemon Trainer", "Lucario", "Greninja", "Captain Falcon", "Villager", "Mega Man", "Olimar", "Wii Fit Trainer", "Shulk", "Pac Man", "Sonic", "Ness", "Falco", "Wario", "Lucina", "Young Link", "Dark Pit", "Dr. Mario", "Pichu", "R.O.B.", "Ganondorf", "Mr. Game & Watch", "Bowser Jr.", "Duck Hunt", "Jigglypuff", "Mewtwo", "Lucas", "Roy", "Chrom", "Ryu", "Cloud", "Corrin", "Bayonetta", "Snake", "Ice Climbers", "Inkling", "Ridley", "Daisy", "King K. Rool", "Dark Samus", "Young Link", "Simon", "Richter", "Pikachu", "Wolf", "Isabelle", "Incineroar", "Piranha Plant", "Ken", "Random"];
+  const portraitNames = ["Mario", "Donkey Kong", "Link", "Samus", "Dark Samus", "Yoshi", "Kirby", "Fox", "Pikachu", "Luigi", "Ness", "Captain Falcon", "Jigglypuff", "Peach", "Daisy", "Bowser", "Ice Climbers", "Sheik", "Zelda", "Dr. Mario", "Pichu", "Falco", "Marth", "Lucina", "Young Link", "Ganondorf", "Mewtwo", "Roy", "Chrom", "Mr. Game & Watch", "Meta Knight", "Pit", "Dark Pit", "Zero Suit Samus", "Wario", "Snake", "Ike", "Pokemon Trainer", "Diddy Kong", "Lucas", "Sonic", "King Dedede", "Olimar", "Lucario", "R.O.B.", "Toon Link", "Wolf", "Villager", "Mega Man", "Wii Fit Trainer", "Rosalina & Luma", "Little Mac", "Greninja", "Palutena", "Pac Man", "Robin", "Shulk", "Bowser Jr.", "Duck Hunt", "Ryu", "Ken", "Cloud", "Corrin", "Bayonetta", "Inkling", "Ridley", "Simon", "Richter", "King K. Rool", "Isabelle", "Incineroar", "Piranha Plant", "Mii Brawler", "Mii Swordfighter", "Mii Gunner", "Random"];
+  // const portraitNames = ["Mario", "Luigi", "Peach", "Bowser", "Yoshi", "Rosalina & Luma", "Donkey Kong", "Diddy Kong", "Link", "Zelda", "Sheik", "Toon Link", "Samus", "Zero Suit Samus", "Pit", "Palutena", "Marth", "Ike", "Robin", "Kirby", "King Dedede", "Meta Knight", "Little Mac", "Fox", "Pokemon Trainer", "Lucario", "Greninja", "Captain Falcon", "Villager", "Mega Man", "Olimar", "Wii Fit Trainer", "Shulk", "Pac Man", "Sonic", "Ness", "Falco", "Wario", "Lucina", "Young Link", "Dark Pit", "Dr. Mario", "Pichu", "R.O.B.", "Ganondorf", "Mr. Game & Watch", "Bowser Jr.", "Duck Hunt", "Jigglypuff", "Mewtwo", "Lucas", "Roy", "Chrom", "Ryu", "Cloud", "Corrin", "Bayonetta", "Snake", "Ice Climbers", "Inkling", "Ridley", "Daisy", "King K. Rool", "Dark Samus", "Young Link", "Simon", "Richter", "Pikachu", "Wolf", "Isabelle", "Incineroar", "Piranha Plant", "Ken", "Random"];
   
   portraitNames.forEach(character => {
     const src = "/images/profile-images/" + character.toLowerCase().replaceAll(".", "").replaceAll("&", "and").replaceAll(" ", "_") + ".webp";
@@ -91,7 +92,6 @@ function chooseMap() {
   setTimeout(() => {
     document.querySelector("#map-select").style.opacity = 0;
     document.querySelector("#map-select").style.pointerEvents = "none";
-    document.querySelector("#player-select").style.pointerEvents = "auto";
     document.querySelector("#player-select").style.opacity = 1;
   }, 500);
   showLoader("#player-select");

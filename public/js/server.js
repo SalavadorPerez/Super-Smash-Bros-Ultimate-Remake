@@ -37,9 +37,9 @@ socket.on("currentRooms", (data) => {
 socket.on("currentPlayers", (data) => {
   players = data;
   
-  // if (sessionStorage.getItem("gameSave")) {
-  //   players[socket.id] = JSON.parse(sessionStorage.getItem("gameSave"));
-  // }
+  if (sessionStorage.getItem("gameSave")) {
+    players[socket.id] = JSON.parse(sessionStorage.getItem("gameSave"));
+  }
 
   myId = socket.id;
   players[socket.id].id = socket.id;

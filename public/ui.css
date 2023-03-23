@@ -197,7 +197,7 @@
   min-width: 100%;
   min-height: 100%;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 500ms;
 }
 
 #map-select-maps-container::before {
@@ -246,7 +246,7 @@
   display: grid;
   gap: 10px;
   grid-template-columns: auto;
-  grid-template-rows: 60% auto;
+  grid-template-rows: 60% 40%;
   pointer-events: none;
 }
 
@@ -282,7 +282,7 @@
 }
 
 #player-select-preview-container #container #spot {
-/*   background: conic-gradient(from 0.75turn at 70% bottom, #d4818c 12deg, #cf5878 12deg 20deg, #b12062 20deg 40deg, #b6b4d1 40deg 360deg); */
+  background: conic-gradient(from 0.75turn at 70% bottom, #d4818c 12deg, #cf5878 12deg 20deg, #b12062 20deg 40deg, #b6b4d1 40deg 360deg);
   clip-path: polygon(55px 0, 100% 0, 100% 100%, 0 100%, 0 55px);
   height: 100%;
   width: 100%;
@@ -290,16 +290,28 @@
 }
 
 #player-select-preview-container #container #spot #shadow {
-/*   background: rgba(250, 0, 0, 0.75); */
+  background: conic-gradient(from 0.72turn at 45% 85%, #f17969 12deg, #dd423a 12deg 20deg, #b60202
+ 20deg 40deg, #fe3636 40deg 360deg);
   outline: #df626a 2px solid;
   transform: rotate(15deg);
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   top: -100px;
   bottom: -100px;
   right: -100px;
   left: 50%;
   box-shadow: -10px 0 0 rgba(100, 100, 100, 0.4);
+}
+
+#player-select-preview-container #container #spot #player-img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transition: opacity 100ms;
+  max-width: 60%;
+  min-width: 60%;
+  filter: none;
 }
 
 #player-select-players-container {
@@ -346,7 +358,7 @@
   margin-top: 20px;
   width: 150%;
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 500ms;
   filter: drop-shadow(5px 5px 0 rgba(150, 150, 150, 0.8));
 }
 
@@ -361,8 +373,9 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 1000;
+  font-stretch: ultra-condensed;
   text-align: center;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, 1px 1px 0 black, -1px 1px 0 black, 2px 2px 0 black;
 }
@@ -715,4 +728,14 @@
 @keyframes moveBackground {
   0% 100% { background-position: top left }
   50% { background-position: bottom right }
+}
+
+@keyframes slideIn {
+  0% { left: 100% }
+  100% { left: 0 }
+}
+
+@keyframes slideOut {
+  0% { left: 0 }
+  100% { left: 100% }
 }
